@@ -172,6 +172,18 @@ nav {
     font-size: 1rem;
 }
 
+.detail-card p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.detail-card p a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 /* Checklist */
 .checklist {
     background: var(--white);
