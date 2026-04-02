@@ -310,6 +310,13 @@ nav {
     font-size: 1rem;
 }
 
+.add-calendar {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
 .detail-card p a {
     color: var(--primary-color);
     text-decoration: none;
