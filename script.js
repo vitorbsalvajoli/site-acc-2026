@@ -149,6 +149,16 @@ window.addEventListener('load', updateActiveNav);
 
 // Contador Regressivo para 10/07/2026 às 12:00
 function updateCountdown() {
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    // Verifica se os elementos existem
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
+        return;
+    }
+
     const targetDate = new Date('July 10, 2026 12:00:00').getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
@@ -159,21 +169,23 @@ function updateCountdown() {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
     } else {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
     }
 }
 
-// Atualizar contador a cada segundo
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// Atualizar contador a cada segundo quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', function() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+});
 
 // Mensagem de boas-vindas no console
 console.log('%c🏕️ Bem-vindo ao site do A.C.C. 2026!', 'font-size: 16px; font-weight: bold; color: #2d5a27;');
