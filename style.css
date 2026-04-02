@@ -155,6 +155,11 @@ nav {
     text-align: center;
     box-shadow: 0 4px 20px var(--shadow);
     transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .detail-card:hover {
@@ -182,6 +187,38 @@ nav {
 .detail-card p a:hover {
     color: var(--secondary-color);
     text-decoration: underline;
+}
+
+/* Link envolvendo todo o card de localização */
+.detail-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.detail-card-link .detail-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.detail-card-link:hover .detail-card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(45, 90, 39, 0.2);
+}
+
+.detail-card-link .detail-card::after {
+    content: '🗺️';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.detail-card-link:hover .detail-card::after {
+    opacity: 1;
 }
 
 /* Checklist */
